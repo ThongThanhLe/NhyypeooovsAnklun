@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhyy và Hank</title>
+    <style>
+        body {
+            background-image: url(back.jpeg);
+        }
+
+        h1 {
+            text-align: center;
+            color: purple;
+        }
+
+        .imgaes {
+            width: 1280px;
+            height: 720px;
+     margin-left: 30%;
+        }
+
+        .div {
+            position: relative;
+            top: 10px;
+            height: 30px;
+            width: 200px;
+            background-color: purple;
+            text-align: center;
+            line-height: 30px;
+            margin: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        img {
+            width: 700px;
+            height: 700px;
+        }
+
+        button {
+            background-color: purple;
+            border: 1px solid purple;
+            color: white;
+            margin-left: 800px;
+        }
+        @media (max-width:390px) {
+            #anh{
+                width: 100%;
+                position: absolute;
+                right: 70px;
+            }
+            .imgaes {
+                width: 300px;
+                position: relative;
+                margin-right: 20px;
+            }
+            button {
+                position: absolute;
+                right: 180px;
+            }
+            .div {
+                margin-top: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>List ảnh</h1>
+    <div class="imgaes">
+        <img id="anh" src="0.jpeg" alt="">
+    </div>
+    <button onclick="next()">Tự động</button>
+    <div class="div">
+        <a href="index.html">Quay lại!</a>
+
+    </div>
+
+    <script>
+        var img = [];
+        for (var i = 0; i < 10; i++) {
+            img[i] = new Image();
+            img[i].src = i + ".jpeg";
+        }
+        var index = 0;
+        // nút next
+        function next() {
+            index++;
+            if (index >= img.length) {
+                index = 0;
+            }
+            var anh = document.getElementById('anh');
+            anh.src = img[index].src;
+            setTimeout("next()", 1000);
+        }
+
+
+    </script>
+</body>
+
+</html>
